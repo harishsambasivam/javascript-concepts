@@ -1,6 +1,6 @@
 const http = {
     get:function(url,callback){
-        let res = // make request and fetch data; 
+        let res = 0; // make request and fetch data; 
         callback(res);
     }
 }
