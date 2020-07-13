@@ -114,6 +114,10 @@ class Regex {
   }
 }
 
+const s = new String("hello world");
+const world = new Regexp("world");
+s.search(world); // 6
+
 // we can pass any obj that implements Symbol.search to search(), not just limited to regex
 
 class Animal {
