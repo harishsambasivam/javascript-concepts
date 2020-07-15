@@ -1,25 +1,33 @@
-function *cartoons(names){
-    for(let name in names){
-        yield names[name];
-    }
+class Cartoons {
+  constructor(cartoonnames) {
+    this.names = cartoonnames;
+  }
+
+  getName() {
+    return this.names;
+  }
+
+  *cartoonGenerator() {
+    for (let cartoon in this.names) yield this.names[cartoon];
+  }
 }
 
+const cartoons = new Cartoons([
+  { name: "tom & jerry" },
+  { name: "Mr.bean" },
+  { name: "pokemon" },
+]);
+let cartoonIterator = cartoons.cartoonGenerator();
 
-const allCartoons = cartoons([{name:'tom & jerry'}, {name:'Mr.bean'}, {name:'pokemon'}]);
-
-console.log(allCartoons.next()) // {done:false,value:'tom & jerry'}
-console.log(allCartoons.next()) // {done:false,value:'Mr.bean'}
-console.log(allCartoons.next()) // {done:false,value:'pokemon'}
-console.log(allCartoons.next()) // {done:true}
-console.log(allCartoons.next()) // {done:true}
-
-
-function *myGenerator(){
-
-    yield {name:"harish"};
-    yield {name:'sai'};
+for (let cartoon of cartoonIterator) {
+  console.log("-");
+  console.log(cartoon);
 }
 
-let iterator = myGenerator();
-iterator.next()
-iterator.next()
+cartoonIterator = cartoons.cartoonGenerator();
+
+console.log(cartoonIterator.next()); // {done:false,value:'tom & jerry'}
+cartoonIterator.next(); // {done:false,value:'Mr.bean'}
+cartoonIterator.next(); // {done:false,value:'pokemon'}
+cartoonIterator.next(); // {done:true}
+cartoonIterator.next(); // {done:true}

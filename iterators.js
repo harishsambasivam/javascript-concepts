@@ -1,18 +1,14 @@
-class Users{
-  constructor(users){
-      this.users = users;
+class Users {
+  constructor(users) {
+    this.users = users;
   }
 
-  get(){
+  get() {
     return this.users;
   }
 }
 
-let allUsers = new Users([
-  {name:'arun'},
-  {name:'sai'},
-  {name:'bala'},
-])
+let allUsers = new Users([{ name: "arun" }, { name: "sai" }, { name: "bala" }]);
 
 /*
 
@@ -24,39 +20,51 @@ for(let user of allUsers){ // allusers is not iterable
 
 */
 
-class Cartoons{
-  constructor(cartoonnames){
+class Cartoons {
+  constructor(cartoonnames) {
     this.names = cartoonnames;
   }
 
-  getName(){
+  getName() {
     return this.names;
   }
 
-  [Symbol.iterator](){
+  [Symbol.iterator]() {
     let index = 0;
     let cartoons = this.names;
 
-    return (
-      function next(){
-        if(index < cartoons.length) {
+    return {
+      next() {
+        if (index < cartoons.length) {
           return {
-            done:false,
-            value:cartoons[index++]
-          }
+            done: false,
+            value: cartoons[index++],
+          };
         }
-          return {done:true}
-      }
-    )
+        return { done: true };
+      },
+    };
   }
-
 }
 
-const cartoons = new Cartoons([{name:'tom & jerry'}, {name:'Mr.bean'}, {name:'pokemon'}]);
-const iterator = cartoons[Symbol.iterator]();
+const cartoons = new Cartoons([
+  { name: "tom & jerry" },
+  { name: "Mr.bean" },
+  { name: "pokemon" },
+]);
 
-iterator() // {done:false,value:'tom & jerry'}
-iterator() // {done:false,value:'Mr.bean'}
-iterator() // {done:false,value:'pokemon'}
-iterator() // {done:true}
-iterator() // {done:true}
+console.log([...cartoons]); // [
+// { name: "tom & jerry" },
+// { name: "Mr.bean" },
+// { name: "pokemon" },
+// ]
+
+for (let cartoon of cartoons) console.log(cartoon); // { name: "tom & jerry" }, { name: "Mr.bean" }, { name: "pokemon" },
+
+const cartoonIterator = cartoons[Symbol.iterator]();
+
+cartoonIterator.next(); // {done:false,value:'tom & jerry'}
+cartoonIterator.next(); // {done:false,value:'Mr.bean'}
+cartoonIterator.next(); // {done:false,value:'pokemon'}
+cartoonIterator.next(); // {done:true}
+cartoonIterator.next(); // {done:true}
