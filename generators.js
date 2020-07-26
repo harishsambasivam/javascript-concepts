@@ -17,6 +17,7 @@ const cartoons = new Cartoons([
   { name: "Mr.bean" },
   { name: "pokemon" },
 ]);
+
 let cartoonIterator = cartoons.cartoonGenerator();
 
 for (let cartoon of cartoonIterator) {

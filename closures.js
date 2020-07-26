@@ -1,6 +1,6 @@
 function greet(greeting){
     return function(name){
-        console.log('Hello ' + name);
+        console.log(greeting + name);
     }
 }
 

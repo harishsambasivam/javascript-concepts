@@ -60,14 +60,14 @@
 // 🔥promises
 
 function letStart() {
-  return new Promise((resolve, reject) => resolve(brushAndShower));
+  return new Promise((resolve, reject) => resolve());
 }
 
 function brushAndShower() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Brushed and showered");
-      resolve(makeBreakfast);
+      resolve();
     }, 300);
   });
 }
@@ -76,7 +76,7 @@ function makeBreakfast() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Made Break fast");
-      resolve(eatBreakFast);
+      resolve();
     }, 150);
   });
 }
@@ -85,16 +85,16 @@ function eatBreakFast() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("ate break fast");
-      resolve(catchBus);
+      resolve();
     }, 150);
   });
 }
 
 function catchBus() {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("catchedBus");
-      resolve(reachOffice());
+      resolve();
     }, 100);
   });
 }
@@ -104,18 +104,18 @@ function reachOffice() {
 }
 
 // letStart()
-//     .then(brushAndShower => brushAndShower())
-//     .then(makeBreakfast => makeBreakfast())
-//     .then(eatBreakFast => eatBreakFast())
-//     .then(catchBus => catchBus())
+//     .then(() => brushAndShower())
+//     .then(() => makeBreakfast())
+//     .then(() => eatBreakFast())
+//     .then(() => catchBus())
 
 // async function wokeUp(){
-//      let brushAndShower = await letStart();
-//      let makeBreakfast = await brushAndShower();
-//      let eatBreakFast = await makeBreakfast();
-//      let catchBus = await eatBreakFast();
-//      let reachOffice = await catchBus();
-//      reachOffice();
+//   await letStart();
+//   await brushAndShower();
+//   await makeBreakfast();
+//   await eatBreakFast();
+//   await catchBus();
+//   await reachOffice();
 // }
 
 // wokeUp();
@@ -145,3 +145,18 @@ Promise.all([iWillConnectWithYou, iWillPostDaily]).then((results) => {
 Promise.allSettled([iWillConnectWithYou, iWillPostDaily]).then((results) => {
   console.log(results);
 });
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const brushAndShower = () =>
+  delay(3000).then(console.log("brushed and showered"));
+const makeBreakFast = () => delay(2000).then(console.log("made Breakfast"));
+const eatBreakFast = () => delay(3000).then(console.log("ate breakfast"));
+const catchBus = () => delay(2000).then(console.log("catched Bus"));
+const reachedOffice = () => delay(0).then(console.log("reachedOffice"));
+
+delay(0)
+  .then(brushAndShower)
+  .then(makeBreakFast)
+  .then(eatBreakFast)
+  .then(catchBus)
+  .then(reachedOffice);
