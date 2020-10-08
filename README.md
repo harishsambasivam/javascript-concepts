@@ -1,2 +1,2 @@
-#JavaScript Concepts every JavaScript developer should know!
+# JavaScript Concepts every JavaScript developer should know!
 
