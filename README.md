@@ -16,7 +16,7 @@ This repository was created with the intention of helping developers. Use it as 
 Feel free to submit a PR adding a link to your own recaps or reviews. If you want to translate the repo into your native language, please feel free to do so.
 
 ## Table of Contents
-1. **[Type Coercion](#1-type-corecion)
+1. **[Type Coercion](#1-Type-Coercion)**
 2. **[=== vs ==](#2-===-vs-===)**
 
 ## 1.Type Coercion
