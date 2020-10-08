@@ -80,6 +80,7 @@ JavaScript has two visually similar, yet very different, ways to test equality. 
  When using triple equals === in JavaScript, we are testing for `strict equality`.
  
   let's illustrate this with the same example which we used for ==
+  
    ```
     let number = 2;
     let string = '2';
@@ -87,21 +88,20 @@ JavaScript has two visually similar, yet very different, ways to test equality. 
     
     ouput: false
  ```
-  -[x] `number` variable is not coerced to string from number datatype.
+  - [x] `number` variable is not coerced to string from number datatype.
   
-     ```
+ ```
     let number = 2;
     let string = '2';
     console.log(number == string);
-    
     console.log( 2 === '2')   //  ✅ comparision of data type for equality (different data types)
     
     ouput: false
  ```
  
  the steps are as follows:
- -[x] type checking
- -[x] comparision of values for equality
+ - [x] type checking
+ - [x] comparision of values for equality
  
   one more example to illustrate it clearly
  
