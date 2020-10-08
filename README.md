@@ -37,7 +37,7 @@ JavaScript has two visually similar, yet very different, ways to test equality. 
 
 ### Double equals(==)
 
- when using ==, Javascript compiler just checks the equality of values. it is called `loose equality`, Because when we are using (==) to perform equality Javascript compiler does something called [type coercion](#1-type-coercion).
+ when using ==, Javascript compiler just checks the equality of values. it is called `loose equality`, Because when we are using (==) to perform equality Javascript compiler does something called [type coercion](#1type-coercion).
  
  let's illustrate this with an example
  
