@@ -16,14 +16,28 @@ This repository was created with the intention of helping developers. Use it as 
 Feel free to submit a PR adding a link to your own recaps or reviews. If you want to translate the repo into your native language, please feel free to do so.
 
 ## Table of Contents
-1. **[=== vs ==](#1-===-vs-===)**
+1. **[Type Coercion](#1-type-corecion)
+2. **[=== vs ==](#2-===-vs-===)**
 
-## 1. === vs ==
+## 1.Type Coercion
+
+consider the following code
+```
+   [] + "2"
+   
+   output: "2"
+ ```
+ 
+ In JavaScript, + can add two numbers or concatenate two strings. In this case, we have neither two numbers nor two strings. We only have one number and an empty array. According to JavaScript's type rules, this makes no logical sense. Since it’s breaking its rules, instead of crashing it tries to make sense of it anyway. So what does JavaScript do? Well, it knows how to concatenate strings, so it converts both [] and 5 into strings and the result is string value "5".
+ 
+ Note: == is not immune to JavaScript’s type conversion behavior.
+
+## 2.=== vs ==
 JavaScript has two visually similar, yet very different, ways to test equality. You can test equality with == or ===.
 
 ### Double equals(==)
 
- when using ==, Javascript compiler just checks the equality of values regardles of their data types. it is called `loose equality`, Because when we are using (==) to perform equality Javascript compiler does something called `type coercion`.
+ when using ==, Javascript compiler just checks the equality of values. it is called `loose equality`, Because when we are using (==) to perform equality Javascript compiler does something called [type coercion](#1-type-coercion).
  
  let's illustrate this with an example
  
